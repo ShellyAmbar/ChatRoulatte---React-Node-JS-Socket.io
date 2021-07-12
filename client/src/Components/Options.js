@@ -67,7 +67,7 @@ function Options({ children }) {
                 fullWidth
               />
               <CopyToClipboard text={me} className={classes.margin}>
-                <Button />
+                <Button variant="contained">Copy your ID</Button>
               </CopyToClipboard>
             </Grid>
           </Grid>
