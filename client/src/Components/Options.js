@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { Assessment, Phone, PhoneDisabled } from "@material-ui/icons";
+import { Assignment, Phone, PhoneDisabled } from "@material-ui/icons";
 import { SocketContext } from "../SocketContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,43 +17,68 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
-  gridContainer: {
-    width: "100%",
-    [theme.breakpoints.down("xs")]: {
-      flexDirection: "column",
-    },
-  },
-  container: {
-    position: "absolute",
 
-    width: "600px",
-    margin: "35px 0",
-    padding: 0,
-    [theme.breakpoints.down("xs")]: {
-      width: "80%",
-    },
-  },
-  margin: {
-    marginTop: 20,
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center",
+    alignItems: "center",
+    minWidth: "100%",
+    height: "100%",
+    minHeight: "100%",
+    background: "rgba(52, 52, 52, 0.4)",
+
+    position: "fixed",
+    right: 0,
+    bottom: 0,
+    minHeight: "100%",
+    minWidth: "100%",
+
+    left: 0,
+    bottom: 0,
   },
   padding: {
-    padding: 20,
+    padding: "10px",
   },
+  margin: {
+    margin: "10px",
+  },
+
   paper: {
-    background: "rgba(255, 0, 0, 0.2)",
-    padding: "10px 20px",
-    border: "2px solid black",
+    margin: "auto",
+    width: "50%",
+
+    alignSelf: "center",
+    padding: "10px",
   },
 }));
 
 function Options({ children }) {
-  const { name, setname, callEnded, me, callUser, callAccepted } =
-    useContext(SocketContext);
+  const {
+    name,
+    setname,
+    callEnded,
+    me,
+    callUser,
+    callAccepted,
+    leaveCall,
+    isOnCall,
+  } = useContext(SocketContext);
   const [idToCall, setidToCall] = useState("");
   const classes = useStyles();
-  return (
+  const [show, setShow] = useState(true);
+
+  const handleClose = () => {
+    if (isOnCall) {
+      leaveCall();
+    }
+    setShow(false);
+  };
+
+  return show ? (
     <Container className={classes.container}>
       <Paper elevation={10} className={classes.paper}>
+        <Button onClick={handleClose}> X </Button>
         <form className={classes.root} noValidate autoComplete="off">
           <Grid container className={classes.gridContainer}>
             <Grid item xs={12} md={6} className={classes.padding}>
@@ -67,14 +92,58 @@ function Options({ children }) {
                 fullWidth
               />
               <CopyToClipboard text={me} className={classes.margin}>
-                <Button variant="contained">Copy your ID</Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  startIcon={<Assignment fontSize="large" />}
+                >
+                  Copy your ID
+                </Button>
               </CopyToClipboard>
+            </Grid>
+
+            <Grid item xs={12} md={6} className={classes.padding}>
+              <Typography gutterBottom variant="h6">
+                Make a call
+              </Typography>
+              <TextField
+                label="Id to call"
+                value={idToCall}
+                onChange={(e) => setidToCall(e.target.value)}
+                fullWidth
+              />
+              {callAccepted && !callEnded ? (
+                <Button
+                  className={classes.margin}
+                  variant="contained"
+                  color="secondary"
+                  fullWidth
+                  startIcon={<PhoneDisabled fontSize="large" />}
+                  onClick={leaveCall}
+                >
+                  Hang Up
+                </Button>
+              ) : (
+                <Button
+                  className={classes.margin}
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  startIcon={<Phone fontSize="large" />}
+                  onClick={() => callUser(idToCall)}
+                >
+                  Call
+                </Button>
+              )}
             </Grid>
           </Grid>
         </form>
+        {children}
       </Paper>
-      {children}
     </Container>
+  ) : (
+    <div></div>
   );
 }
 

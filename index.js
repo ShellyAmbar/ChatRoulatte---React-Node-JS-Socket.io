@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
   socket.emit("me", socket.id);
 
   socket.on("disconnect", () => {
-    socket.broadcast.emit("call ended");
+    socket.broadcast.emit("callended");
   });
 
   socket.on("calluser", ({ userToCall, signalData, from, name }) => {

@@ -10,6 +10,7 @@ const ContextProvider = ({ children }) => {
   const [call, setCall] = useState({});
   const [callAccepted, setcallAccepted] = useState(false);
   const [callEnded, setcallEnded] = useState(false);
+  const [isOnCall, setisOnCall] = useState(false);
   const [name, setname] = useState("");
 
   const myVideo = useRef();
@@ -31,12 +32,13 @@ const ContextProvider = ({ children }) => {
       setMe(id);
     });
 
-    socket.on("calluser", ({ signal, from, name: callerName }) => {
+    socket.on("calluser", ({ from, name: callerName, signal }) => {
       setCall({ isReceivedCall: true, from, name: callerName, signal });
     });
   }, []);
   const answerCall = () => {
     setcallAccepted(true);
+    setisOnCall(true);
     const peer = new Peer({ initiator: false, trickle: false, stream });
     peer.on("signal", (data) => {
       socket.emit("answercall", { signal: data, to: call.from });
@@ -69,6 +71,7 @@ const ContextProvider = ({ children }) => {
     connectionRef.current = peer;
   };
   const leaveCall = () => {
+    setisOnCall(false);
     setcallEnded(true);
     connectionRef.current.destroy();
     window.location.reload();
@@ -89,6 +92,7 @@ const ContextProvider = ({ children }) => {
         callUser,
         leaveCall,
         answerCall,
+        isOnCall,
       }}
     >
       {children}
