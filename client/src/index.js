@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import "./styles.css";
 import { ContextProvider } from "./SocketContext";
 
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 ReactDOM.render(
   <ContextProvider>
     <App />

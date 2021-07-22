@@ -69,9 +69,9 @@ function Options({ children }) {
   const [show, setShow] = useState(true);
 
   const handleClose = () => {
-    if (isOnCall) {
-      leaveCall();
-    }
+    // if (isOnCall) {
+    //   leaveCall();
+    // }
     setShow(false);
   };
 

@@ -10,6 +10,9 @@ export default function Routes() {
     <Router>
       <div>
         <Switch>
+          <Route exact path="/">
+            <Registeration />
+          </Route>
           <Route path="/ChatRoulate">
             <ChatRoulate />
           </Route>
@@ -18,6 +21,9 @@ export default function Routes() {
           </Route>
           <Route path="/Registeration">
             <Registeration />
+          </Route>
+          <Route path="/Settings">
+            <Settings />
           </Route>
         </Switch>
       </div>

@@ -17,6 +17,7 @@ function ChatRoulate() {
   return (
     <div className={classes.wrapper}>
       <VideoPlayer />
+
       <Controls />
     </div>
   );

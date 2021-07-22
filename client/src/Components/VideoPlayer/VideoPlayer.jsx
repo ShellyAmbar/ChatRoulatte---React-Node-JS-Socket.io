@@ -107,27 +107,19 @@ const VideoPlayer = (props) => {
      { console.log(` User Stream ${userVideo}`)}
      
       { stream && 
-      // isOnCall ? <LoadingDots/> : <></>
-     // && 
+     
      <div >
        
       <video playsInline muted ref={myVideo} autoPlay className={classes.videoLarge} />
-     
     
       <video playsInline muted ref={userVideo} autoPlay className={classes.videoLarge}/>
       
-       
         <div  className={classes.smallVideo}>
-             <h1 style={{marginBottom:'5px', color:"white"}}>{name}</h1>
+
              <video playsInline muted  autoPlay className={classes.videoContainer} ref={myVideo2}/>
+             <h1 style={{marginTop:'5px', color:"white"}}>{name}</h1>
        </div> 
-           
-      
-
-        
      </div>
-
-       
       }
       {
         !isOnCall ? <LoadingDots/>: <></>

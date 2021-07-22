@@ -80,7 +80,7 @@ function NavigationMenu({isOpen}) {
         <a  href="/ChatRoulate">ChatRoulate</a>
       </NavLink>
       <NavLink initial={false} animate={isOpen ? "show": "hide"} variants={{show: {...variants.show, transition:{delay: 1.3}, duration: 0.2}, hide: {...variants.hide, transition:{delay: 0.5}, duration: 0.05}}}>
-        <a  href="#">Settings</a>
+        <a  href="/Settings">Settings</a>
       </NavLink>
     </NavList>
   </MenuContainer>;

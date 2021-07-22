@@ -1,6 +1,7 @@
 import { Typography, Grid, Paper, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { HamburgerMenu } from "./HamburgerMenu";
 
@@ -46,8 +47,9 @@ const NavBar = () => {
   return (
     <NavbarContainer>
       <HamburgerMenu />
+
       <div className={classes.button}>
-        <h2
+        <a
           style={{
             borderRadius: "25px",
             border: "3px solid #ffff",
@@ -55,22 +57,10 @@ const NavBar = () => {
             fontSize: "20px",
             color: "white",
           }}
-        >
-          SignUp
-        </h2>
-      </div>
-      <div className={classes.button}>
-        <h2
-          style={{
-            borderRadius: "25px",
-            border: "3px solid #ffff",
-            padding: "6px",
-            fontSize: "20px",
-            color: "white",
-          }}
+          href="/Registeration"
         >
           Login
-        </h2>
+        </a>
       </div>
     </NavbarContainer>
   );

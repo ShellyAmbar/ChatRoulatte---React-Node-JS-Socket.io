@@ -10,6 +10,7 @@ import Chat from "./Components/Chat";
 import Controls from "./Components/Controls";
 import NavBar from "./Components/NavBar";
 import Routes from "./Components/Navigation/Routes";
+import Registeraion from "./Components/Pages/Registeraion";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -50,7 +51,7 @@ const App = () => {
   return (
     <div className={classes.wrapper}>
       <NavBar />
-      <Routes></Routes>
+      <Routes />
     </div>
   );
 };
