@@ -12,9 +12,13 @@ const ContextProvider = ({ children }) => {
   const [callEnded, setcallEnded] = useState(false);
   const [isOnCall, setisOnCall] = useState(false);
   const [name, setname] = useState("");
+  const [myVideoSrc, setmyVideoSrc] = useState(null);
+  const [userVideoSrc, setuserVideoSrc] = useState(null);
 
   const myVideo = useRef();
   const userVideo = useRef();
+  const myVideo2 = useRef();
+
   const connectionRef = useRef();
   useEffect(() => {
     //get permission of video microphon
@@ -24,8 +28,12 @@ const ContextProvider = ({ children }) => {
         audio: true,
       })
       .then((currentStream) => {
-        setStream(currentStream);
-        myVideo.current.srcObject = currentStream;
+        if (currentStream != null) {
+          setStream(currentStream);
+          setmyVideoSrc(currentStream);
+
+          myVideo.current.srcObject = currentStream;
+        }
       });
 
     socket.on("me", (id) => {
@@ -45,6 +53,10 @@ const ContextProvider = ({ children }) => {
     });
     peer.on("stream", (currentStream) => {
       userVideo.current.srcObject = currentStream;
+      myVideo2.current.srcObject = stream;
+      myVideo.current.srcObject = null;
+
+      setuserVideoSrc(currentStream);
     });
 
     peer.signal(call.signal);
@@ -62,10 +74,14 @@ const ContextProvider = ({ children }) => {
     });
     peer.on("stream", (currentStream) => {
       userVideo.current.srcObject = currentStream;
+      myVideo2.current.srcObject = stream;
+      myVideo.current.srcObject = null;
+      setuserVideoSrc(currentStream);
     });
 
     socket.on("callaccepted", (signal) => {
       setcallAccepted(true);
+      setisOnCall(true);
       peer.signal(signal);
     });
     connectionRef.current = peer;
@@ -83,6 +99,7 @@ const ContextProvider = ({ children }) => {
         call,
         callAccepted,
         myVideo,
+        myVideo2,
         userVideo,
         stream,
         name,
@@ -93,6 +110,8 @@ const ContextProvider = ({ children }) => {
         leaveCall,
         answerCall,
         isOnCall,
+        myVideoSrc,
+        userVideoSrc,
       }}
     >
       {children}

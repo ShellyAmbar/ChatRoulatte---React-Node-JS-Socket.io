@@ -4,6 +4,7 @@ import styled from "styled-components"
 import MenuToggle from './MenuToggle';
 import {motion} from "framer-motion"
 import transitions from '@material-ui/core/styles/transitions';
+import NavigationMenu from './NavigationMenu';
 
  const   HamburgerMenuContainer = styled.div`
       display:flex;
@@ -22,7 +23,7 @@ min-width: 30%;
 width: 100%;
 height: 100%;
 max-width: 44%;
-background-color: #fff;
+background-color: rgba(134, 44, 44, 0.274);
 box-shadow: -2px 0 2px rgba(15, 15, 15, 0.3);
 z-index: 90;
 position: fixed;
@@ -33,6 +34,8 @@ user-select: none;
 padding: 1em 2.5em;
 
 `
+
+
 const menuVariants = {
       open:{
             transform: "translateX(3%)"
@@ -60,7 +63,9 @@ export  function HamburgerMenu(props){
       return(
             <HamburgerMenuContainer>
                   <MenuToggle toggle={toggleMenu} isOpen={IsOpen} />
-                  <MenuContainer initial={false} animate={IsOpen ? "open" : "closed"} variants={menuVariants} transition={menuTransition}>Menu</MenuContainer>
+                  <MenuContainer initial={false} animate={IsOpen ? "open" : "closed"} variants={menuVariants} transition={menuTransition}>
+                        <NavigationMenu  isOpen={IsOpen}/>
+                  </MenuContainer>
             </HamburgerMenuContainer>
       )
 }

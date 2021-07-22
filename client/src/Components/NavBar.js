@@ -32,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px",
   },
   button: {
-    padding: "20px",
-    margin: "20px",
+    padding: "10px",
+    margin: "10px",
   },
   toggle: {
     margin: "50px",
@@ -49,6 +49,9 @@ const NavBar = () => {
       <div className={classes.button}>
         <h2
           style={{
+            borderRadius: "25px",
+            border: "3px solid #ffff",
+            padding: "6px",
             fontSize: "20px",
             color: "white",
           }}
@@ -59,6 +62,9 @@ const NavBar = () => {
       <div className={classes.button}>
         <h2
           style={{
+            borderRadius: "25px",
+            border: "3px solid #ffff",
+            padding: "6px",
             fontSize: "20px",
             color: "white",
           }}
