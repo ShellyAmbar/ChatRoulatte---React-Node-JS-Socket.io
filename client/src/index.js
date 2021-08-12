@@ -8,11 +8,18 @@ import { ContextProvider } from "./SocketContext";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Routes from "./Components/Navigation/Routes";
+import { AuthProvider } from "./AuthContext";
 
 ReactDOM.render(
-  <ContextProvider>
-    <App />
-  </ContextProvider>,
+  <AuthProvider>
+    <ContextProvider>
+      <Routes>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </Routes>
+    </ContextProvider>
+  </AuthProvider>,
   document.getElementById("root")
 );
 

@@ -22,7 +22,9 @@ const NavbarContainer = styled.div`
 
 const useStyles = makeStyles((theme) => ({
   NavbarContainer: {
-    position: "absolute",
+    // position: "sticky",
+    // top: 0,
+    // zIndex: 999,
     height: "60px",
     width: "100%",
     borderBottom: "1px solid #FFFF",

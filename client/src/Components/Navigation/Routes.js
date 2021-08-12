@@ -4,8 +4,9 @@ import Settings from "../Pages/Settings/Settings";
 import ChatRoulate from "../Pages/ChatRoulate";
 import PrivateCall from "../Pages/PrivateCall";
 import Registeration from "../Pages/Registeration/Registeraion";
-import { AuthProvider } from "../../AuthContext";
+
 import NavBar from "../NavBar";
+import PrivateRoute from "./PrivateRoute";
 
 export default function Routes() {
   return (
@@ -19,18 +20,12 @@ export default function Routes() {
         <Route path="/Registeration">
           <Registeration />
         </Route>
-        <AuthProvider>
-          <Route path="/ChatRoulate" >
-            <ChatRoulate />
-          </Route>
-          <Route path="/PrivateCall">
-            <PrivateCall />
-          </Route>
 
-          <Route path="/Settings">
-            <Settings />
-          </Route>
-        </AuthProvider>
+        <PrivateRoute path="/ChatRoulate" component={ChatRoulate} />
+
+        <PrivateRoute path="/PrivateCall" component={PrivateCall} />
+
+        <PrivateRoute path="/Settings" component={Settings} />
       </Switch>
     </Router>
   );
