@@ -32,7 +32,9 @@ const ContextProvider = ({ children }) => {
           setStream(currentStream);
           setmyVideoSrc(currentStream);
 
-          myVideo.current.srcObject = currentStream;
+          if (myVideo.current != null) {
+            myVideo.current.srcObject = currentStream;
+          }
         }
       });
 

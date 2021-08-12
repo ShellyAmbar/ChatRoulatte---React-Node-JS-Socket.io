@@ -6,6 +6,7 @@ import ResizeableAndDraggable from "../ResizeableAndDraggable";
 import Draggable from "react-draggable";
 import { render } from "react-dom";
 import LoadingDots from "../LoadingDots/LoadingDots";
+// import { auth } from "./../../firebase";
 
 
 
@@ -59,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
 const VideoPlayer = (props) => {
   const {name, myVideo,myVideo2, userVideo, callAccepted, callEnded,  call,stream, isOnCall,  myVideoSrc,
     userVideoSrc} = useContext(SocketContext)
+    // const [user, setUser] = useState(auth.currentUser)
  
   const classes = useStyles();
 

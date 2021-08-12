@@ -2,6 +2,12 @@ import { motion } from "framer-motion";
 import React, {useContext} from "react";
 import styled from 'styled-components'
 import { SocketContext } from "../../SocketContext";
+import {
+
+  
+  Link
+ 
+} from "react-router-dom";
 
 const MenuContainer = styled.div`
 width: 100%;
@@ -74,13 +80,13 @@ function NavigationMenu({isOpen}) {
     <TopContainer>Hello {name}</TopContainer>
     <NavList>
       <NavLink initial={false} animate={isOpen ? "show": "hide"} variants={{show: {...variants.show, transition:{delay: 0.7}, duration: 0.2}, hide: {...variants.hide, transition:{delay: 0.7}, duration: 0.05}}}>
-        <a   href="/PrivateCall">Private Call</a>
+      <Link to="/PrivateCall">Private Call</Link>
       </NavLink>
       <NavLink initial={false} animate={isOpen ? "show": "hide"} variants={{show: {...variants.show, transition:{delay: 1}, duration: 0.2}, hide: {...variants.hide, transition:{delay: 0.6}, duration: 0.05}}}>
-        <a  href="/ChatRoulate">ChatRoulate</a>
+      <Link to="/ChatRoulate">ChatRoulate</Link>
       </NavLink>
       <NavLink initial={false} animate={isOpen ? "show": "hide"} variants={{show: {...variants.show, transition:{delay: 1.3}, duration: 0.2}, hide: {...variants.hide, transition:{delay: 0.5}, duration: 0.05}}}>
-        <a  href="/Settings">Settings</a>
+      <Link to="/Settings">Settings</Link>
       </NavLink>
     </NavList>
   </MenuContainer>;

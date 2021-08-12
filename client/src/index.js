@@ -7,6 +7,7 @@ import "./styles.css";
 import { ContextProvider } from "./SocketContext";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Routes from "./Components/Navigation/Routes";
 
 ReactDOM.render(
   <ContextProvider>
