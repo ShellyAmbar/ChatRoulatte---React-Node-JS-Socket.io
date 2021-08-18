@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 
-import { SocketContext } from "../../../SocketContext";
+import { SocketContext } from "../../../Context/SocketContext";
 
 function Settings() {
   const [country, setCountry] = useState("");

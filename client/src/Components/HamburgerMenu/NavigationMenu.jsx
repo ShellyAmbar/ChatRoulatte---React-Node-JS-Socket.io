@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React, {useContext} from "react";
 import styled from 'styled-components'
-import { SocketContext } from "../../SocketContext";
+import { SocketContext } from "../../Context/SocketContext";
 import {
 
   

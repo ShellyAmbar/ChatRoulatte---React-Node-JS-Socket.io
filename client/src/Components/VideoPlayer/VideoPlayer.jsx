@@ -1,7 +1,7 @@
 import React, {useContext, useEffect,useState,useRef} from "react";
 import { Typography, Grid, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import {SocketContext} from '../../SocketContext';
+import {SocketContext} from '../../Context/SocketContext';
 import ResizeableAndDraggable from "../ResizeableAndDraggable";
 import Draggable from "react-draggable";
 import { render } from "react-dom";
@@ -17,7 +17,10 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     display:"flex",
    flexDirection:"column",
+
+
     top:70,
+  
     left:"2%",
    
     [theme.breakpoints.down('xs')]: {
@@ -35,10 +38,10 @@ const useStyles = makeStyles((theme) => ({
   videoContainer:{
    //  border: "3px solid #ffff",
     position: 'absolute',
-    top:0,
+    top:"50px",
     left:0,
     width: "100%",
-    height:" 100%", 
+    height:"100%", 
   },
   videoLarge:{
     backgroundColor: "rgba(0, 0, 0, 0.24)",
@@ -70,7 +73,7 @@ const VideoPlayer = (props) => {
       <div >
        <video playsInline muted ref={userVideo} autoPlay className={classes.videoLarge}/>
           <div  className={classes.smallVideo}>
-            <h1 style={{marginBottom:'5px', color:"white"}}>{name}</h1>
+            <h1 style={{ color:"white"}}>{name}</h1>
             <video playsInline muted  autoPlay className={classes.videoContainer} ref={myVideo2}/>
           </div>
       </div>
@@ -119,7 +122,7 @@ const VideoPlayer = (props) => {
         <div  className={classes.smallVideo}>
 
              <video playsInline muted  autoPlay className={classes.videoContainer} ref={myVideo2}/>
-             <h1 style={{marginTop:'5px', color:"white"}}>{name}</h1>
+             <h1 style={{marginLeft:"10px", color:"white"}}>{name}</h1>
        </div> 
      </div>
       }

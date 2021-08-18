@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import Options from "../Options";
 import Notifications from "../Notifications";
-import { SocketContext } from "../../SocketContext";
+import { SocketContext } from "../../Context/SocketContext";
 import { Button } from "@material-ui/core";
 import { PhoneDisabled } from "@material-ui/icons";
 
@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
     background: "rgba(0, 0, 0, 0.7)",
   },
   buttonConatinerStyle: {
-    flexDirection: "column",
-    justifyContent: "flex-end",
+    flexDirection: "row",
+    justifyContent: "center",
     display: "flex",
   },
   buttonStyle: {

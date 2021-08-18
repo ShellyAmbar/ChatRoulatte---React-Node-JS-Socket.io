@@ -29,14 +29,7 @@ const useStyles = makeStyles((theme) => ({
 const Chat = () => {
   const classes = useStyles();
 
-  return (
-    <Grid container className={classes.gridContainer}>
-      {/* mine video */}
-      <Paper className={classes.paper}>
-        <div className={classes.chat}></div>
-      </Paper>
-    </Grid>
-  );
+  return <div className={classes.chat}></div>;
 };
 
 export default Chat;

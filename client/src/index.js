@@ -4,11 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./styles.css";
-import { ContextProvider } from "./SocketContext";
+import { ContextProvider } from "./Context/SocketContext";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Routes from "./Components/Navigation/Routes";
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider } from "./Context/AuthContext";
 
 ReactDOM.render(
   <AuthProvider>

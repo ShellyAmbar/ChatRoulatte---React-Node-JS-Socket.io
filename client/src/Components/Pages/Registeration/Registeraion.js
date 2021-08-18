@@ -2,15 +2,15 @@ import React, { useContext, useState, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import { SocketContext } from "../../../SocketContext";
+import { SocketContext } from "../../../Context/SocketContext";
 import { useHistory } from "react-router-dom";
 //import { GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
 import "firebase/app";
 import {
   facebookProvider,
   googleProvider,
-} from "../../../firebase-auth-providers";
-import SocialMediaAuth from "../../../firebaseAuthMethodes";
+} from "../../../Firebase/firebase-auth-providers";
+import SocialMediaAuth from "../../../Firebase/firebaseAuthMethodes";
 
 import "./Registeration.css";
 

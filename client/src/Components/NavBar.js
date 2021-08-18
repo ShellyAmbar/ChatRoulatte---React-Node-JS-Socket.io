@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { HamburgerMenu } from "./HamburgerMenu";
 import { useHistory } from "react-router-dom";
 
-import firebaseConfig from "../firebase-config";
+import firebaseConfig from "../Firebase/firebase-config";
 
 const NavbarContainer = styled.div`
   display: flex;
