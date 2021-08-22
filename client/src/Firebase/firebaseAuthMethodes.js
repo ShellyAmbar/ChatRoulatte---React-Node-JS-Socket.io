@@ -5,7 +5,7 @@ const SocialMediaAuth = (provider, callback) => {
     .auth()
     .signInWithPopup(provider)
     .then((res) => {
-      return callback();
+      return callback(res.user);
     })
     .catch((err) => console.log(err));
 };

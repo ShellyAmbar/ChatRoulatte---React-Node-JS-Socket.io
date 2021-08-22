@@ -29,6 +29,15 @@ io.on("connection", (socket) => {
   socket.on("answercall", (data) => {
     io.to(data.to).emit("callaccepted", data.signal);
   });
+
+  socket.on("sendMessage", (data) => {
+    io.to(data.to).emit("getMessage", data.signal);
+  });
+
+  socket.on("getMessage", (data) => {
+    io.to(data.to).emit("getMessage", data.signal);
+  });
+
 });
 
 server.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));

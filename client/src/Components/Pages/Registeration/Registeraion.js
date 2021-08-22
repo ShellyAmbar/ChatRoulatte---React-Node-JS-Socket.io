@@ -13,6 +13,8 @@ import {
 import SocialMediaAuth from "../../../Firebase/firebaseAuthMethodes";
 
 import "./Registeration.css";
+import { addUser } from "../../../Firebase/firebase-database";
+import User from "../../../Firebase/Models/User";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -131,7 +133,8 @@ function Registeraion() {
   const [Name, setName] = useState("");
   const history = useHistory();
   const handleOnClickAuth = async (provider) => {
-    await SocialMediaAuth(provider, () => {
+    await SocialMediaAuth(provider, (user) => {
+      addUser(user);
       window.location.href = "/ChatRoulate";
     });
   };

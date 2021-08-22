@@ -1,6 +1,7 @@
 class User {
   id;
   streamId;
+  email;
   name;
   age;
   country;
@@ -11,30 +12,19 @@ class User {
   matchCity;
   matchMaxDistance;
 
-  User(
-    id,
-    streamId,
-    name,
-    age,
-    country,
-    city,
-    aiIdeal,
-    matchAges,
-    matchCountry,
-    matchCity,
-    matchMaxDistance
-  ) {
+  User({ id, email, name }) {
     this.id = id;
-    this.streamId = streamId;
+    this.streamId = "";
+    this.email = email;
     this.name = name;
-    this.age = age;
-    this.country = country;
-    this.city = city;
-    this.aiIdeal = aiIdeal;
-    this.matchAges = matchAges;
-    this.matchCountry = matchCountry;
-    this.matchCity = matchCity;
-    this.matchMaxDistance = matchMaxDistance;
+    this.age = 0;
+    this.country = "";
+    this.city = "";
+    this.aiIdeal = "";
+    this.matchAges = [];
+    this.matchCountry = "";
+    this.matchCity = "";
+    this.matchMaxDistance = 1000;
   }
 }
 
