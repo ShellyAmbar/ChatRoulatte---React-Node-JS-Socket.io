@@ -26,5 +26,61 @@
   background-color: #4285f4;
   color: white;
 }
+.appbar {
+  position: absolute;
+  margin-top: 0px;
+  padding-top: 60px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: azure;
+  z-index: 1;
+}
+.appbar ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  color: azure;
+  font-size: 20px;
+}
+.appbar li {
+  margin: 5px;
+}
 
-/* paralax*/
+/* paralax
+.containerPage {
+  height: 100%;
+  overflow: hidden;
+}
+
+.body {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: "Luna";
+}
+
+.header {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 30vh 0 5vw;
+  position: relative;
+  transform-style: inherit;
+  width: 100vw;
+}
+
+.header h1 {
+  margin-top: -100px;
+}
+.header,
+header ::before {
+  background: 50% 50% / cover;
+} */

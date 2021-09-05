@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     justifyItems: "center",
     minWidth: "100%",
-    height: "120vh",
+    height: "100%",
 
     background: "rgba(0, 0, 0, 0.4)",
 
@@ -40,6 +40,11 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     top: 0,
   },
+  containerPage: {
+    height: "100%",
+    overflow: "hidden",
+  },
+
   padding: {
     padding: "10px",
   },
@@ -74,6 +79,10 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
   },
   section1: {
+    color: "#fff",
+    margin: 0,
+    padding: 0,
+    perspective: "1px",
     position: "fixed",
     right: 0,
     bottom: 0,
@@ -90,42 +99,6 @@ const useStyles = makeStyles((theme) => ({
     background: "#242424",
     objectFit: "contain",
   },
-  section2: {
-    position: "absolute",
-    marginTop: "100px",
-    marginBottom: "50px",
-    right: 0,
-    top: 0,
-    left: 0,
-
-    width: "100%",
-    height: "400px",
-    display: "flex",
-
-    justifyContent: "center",
-    flexDirection: "column",
-    alignItems: "center",
-    background: "rgba(0, 0, 0, 0.4)",
-    objectFit: "contain",
-  },
-  section3: {
-    position: "absolute",
-    marginTop: "600px",
-    marginBottom: "50px",
-    right: 0,
-    top: 0,
-    left: 0,
-
-    width: "100%",
-    height: "50vh",
-    display: "flex",
-
-    justifyContent: "center",
-    flexDirection: "column",
-    alignItems: "center",
-    background: "rgba(0, 0, 0, 0.4)",
-    objectFit: "contain",
-  },
 }));
 function Registeraion() {
   const classes = useStyles();
@@ -139,9 +112,7 @@ function Registeraion() {
     });
   };
 
-  return (
-    <div className={classes.container}>
-      <div className={classes.section1}>
+  /**  <div className={classes.section1}>
         <video
           playsInline
           muted
@@ -158,7 +129,7 @@ function Registeraion() {
           className="login-button google"
           onClick={() => handleOnClickAuth(googleProvider)}
         >
-          {/* <GoogleOutlined style={{ marginRight: "10px" }} /> */}
+           <GoogleOutlined style={{ marginRight: "10px" }} /> 
           SignIn with Google
         </div>
         <br /> <br />
@@ -166,11 +137,34 @@ function Registeraion() {
           className="login-button facebook"
           onClick={() => handleOnClickAuth(facebookProvider)}
         >
-          {/* <FacebookOutlined style={{ marginRight: "10px" }} /> */}
+          <FacebookOutlined style={{ marginRight: "10px" }} /> 
           SignIn with Facebooke
         </div>
       </div>
-      <div className={classes.section3}></div>
+      <div className={classes.section3}></div> */
+
+  return (
+    <div>
+      <div className="appbar">
+        <ul>
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div className={classes.section1} id="home">
+        <h1>Home</h1>
+      </div>
+      <div className={classes.section1} id="about">
+        ABOUT
+      </div>
+      <div className={classes.section1} id="contact"></div>
     </div>
   );
 }
