@@ -1,0 +1,61 @@
+.appbar {
+    position: absolute;
+    margin-top: 0px;
+    padding-top: 60px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: azure;
+    z-index: 1;
+  }
+  .appbar ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    color: azure;
+    font-size: 20px;
+  }
+  .appbar li {
+    margin: 30px;
+   
+  }
+  .appbar a{
+    color: white;
+    text-decoration: none;
+   
+  }
+
+  .section {
+   
+    color: #fff;
+    margin: 0px;
+    padding: 0px;
+    right: 0px;
+    bottom: 0px;
+    left:0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    background: #242424;
+    
+  }
+  .section h1{
+    color: #fff; 
+    margin-bottom: 100px;
+    font-size: 36px;
+  }
+ 
+  .section p{
+    color: #fff;
+    font-size: 25px;
+    margin-top: 20px;
+  }

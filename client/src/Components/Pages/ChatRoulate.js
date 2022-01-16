@@ -8,7 +8,10 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     background: "rgba(0, 0, 0, 0.7)",
     width: "100%",
-    height: "100%",
+  
+    height: "100vh",
+    minHeight: "100vh"
+  
   },
 }));
 

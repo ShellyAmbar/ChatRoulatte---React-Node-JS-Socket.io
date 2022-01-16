@@ -14,10 +14,10 @@ const NavbarContainer = styled.div`
   align-items: center;
   position: absolute;
   width: 100%;
-  height: 60px;
+  height: 70px;
   z-index: 99;
-
   border-bottom: 1px solid #fff;
+  
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     // position: "sticky",
     // top: 0,
     // zIndex: 999,
-    height: "60px",
+    height: "70px",
     width: "100%",
     borderBottom: "1px solid #FFFF",
     display: "flex",
@@ -37,10 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
     margin: "10px",
   },
-  button: {
-    padding: "10px",
-    margin: "10px",
-  },
+ 
   toggle: {
     margin: "50px",
   },
@@ -73,22 +70,43 @@ const NavBar = () => {
     <NavbarContainer>
       <HamburgerMenu />
 
-      <div className={classes.button}>
+     
         <Button
           style={{
             borderRadius: "25px",
-            border: "3px solid #ffff",
-            padding: "6px",
+            border: "2px solid #ffff",
+            padding: "5px",
             fontSize: "20px",
             color: "white",
-            margin: "10px",
+            marginTop: "10px",
+            marginBottom:"5px",
+            marginRight:"3px"
+
           }}
           href="/Registeration"
           onClick={onClickButtonRegister}
         >
-          {text}
+          Login
         </Button>
-      </div>
+     
+    
+        <Button
+          style={{
+            borderRadius: "25px",
+            border: "2px solid #ffff",
+            padding: "5px",
+            fontSize: "20px",
+            color: "white",
+            marginTop: "10px",
+            marginBottom:"5px",
+            marginRight:"10px"
+          }}
+          href="/Home"
+         
+        >
+         Home
+        </Button>
+   
     </NavbarContainer>
   );
 };

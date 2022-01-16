@@ -7,6 +7,7 @@ import Registeration from "../Pages/Registeration/Registeraion";
 
 import NavBar from "../NavBar";
 import PrivateRoute from "./PrivateRoute";
+import Home from "../Pages/Home/Home";
 
 export default function Routes() {
   return (
@@ -15,10 +16,13 @@ export default function Routes() {
 
       <Switch>
         <Route exact path="/">
-          <Registeration />
+          <Home />
         </Route>
         <Route path="/Registeration">
           <Registeration />
+        </Route>
+        <Route path="/Home">
+          <Home />
         </Route>
 
         <PrivateRoute path="/ChatRoulate" component={ChatRoulate} />

@@ -10,16 +10,16 @@ margin: 20px;
 `
 
 const Path =(props)=>(
-    <motion.path strokeWidth="3" fill="transparent" strokeLinecap="round" {...props}/>
+    <motion.path strokeWidth="3" fill="transparent" strokeLinecap="round" color="#fff" {...props}/>
 )
 
 const transition = {duration: 0.3}
 
 export default function MenuToggle({toggle, isOpen}) {
     return (
-       <Button onClick={toggle}>
+       <Button  onClick={toggle}>
            <svg width="23" height="23" viewBox="0 0 23 23">
-               <Path animate={isOpen ? "open": "closed" }  initial= {false} variants={{
+               <Path animate={isOpen ? "open": "closed" }   initial= {false} variants={{
                    closed: { d: "M 2 2.5 L 20 2.5", stroke: "hsl(0, 0%, 100%)"} ,
                 open: { d: "M 3 16.5 L 17 2.5", stroke: "hsl(0, 0%, 18%)"},
                 }} transition={transition}/>

@@ -38,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
   const classes = useStyles();
 
-  return <div></div>;
+  return <div className="App">
+    <Routes />
+  </div>;
 };
 export default App;

@@ -3,8 +3,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { SocketContext } from "../../../Context/SocketContext";
-import { useHistory } from "react-router-dom";
-//import { GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
+import { Link, useHistory } from "react-router-dom";
+import { GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
 import "firebase/app";
 import {
   facebookProvider,
@@ -15,6 +15,8 @@ import SocialMediaAuth from "../../../Firebase/firebaseAuthMethodes";
 import "./Registeration.css";
 import { addUser } from "../../../Firebase/firebase-database";
 import User from "../../../Firebase/Models/User";
+import { Button } from "@material-ui/core";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,23 +84,46 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     margin: 0,
     padding: 0,
-    perspective: "1px",
-    position: "fixed",
     right: 0,
     bottom: 0,
     left: 0,
     top: 0,
     width: "100%",
-    height: "100%",
+    height: "100vh",
     minHeight: "100%",
     minWidth: "100%",
     display: "flex",
-    justifyContent: "center",
+   paddingTop:"200px",
     flexDirection: "column",
     alignItems: "center",
     background: "#242424",
-    objectFit: "contain",
+    
   },
+  loginBbuttonFCB:{
+    cursor: "pointer",
+    padding: 40,
+    color: "white",
+    padding: 20,
+    backgroundColor: "#3b5998",
+   
+    display: "inline-block"
+  },
+  loginBbuttonGOOGLE:{
+    cursor: "pointer",
+    padding: 40,
+    color: "white",
+    padding: 20,
+    backgroundColor: "#4285f4",
+   
+    display: "inline-block"
+  },
+  image:{
+           
+    height:"200px",
+    width:"auto"
+
+},
+
 }));
 function Registeraion() {
   const classes = useStyles();
@@ -106,13 +131,17 @@ function Registeraion() {
   const [Name, setName] = useState("");
   const history = useHistory();
   const handleOnClickAuth = async (provider) => {
+    console.log("click")
     await SocialMediaAuth(provider, (user) => {
       addUser(user);
       window.location.href = "/ChatRoulate";
     });
   };
 
-  /**  <div className={classes.section1}>
+ 
+
+  return (
+      <div className={classes.section1}>
         <video
           playsInline
           muted
@@ -120,52 +149,29 @@ function Registeraion() {
           ref={myVideo}
           className={classes.videoSmall}
         />
-      </div>
-      <div className={classes.section2}>
-        <h2 style={{ marginBottom: "20px", color: "white", fontSize: "50px" }}>
-          Welcome to DateRoulette
+          <img src={'./images/love.png'} className={classes.image}/>
+         <h2 style={{ marginBottom: "20px", color: "white", fontSize: "50px" }}>
+          Register now..
         </h2>
-        <div
-          className="login-button google"
-          onClick={() => handleOnClickAuth(googleProvider)}
+
+        <Button
+    
+         className={classes.loginBbuttonGOOGLE}
+         onClick={() => handleOnClickAuth(googleProvider)}
         >
            <GoogleOutlined style={{ marginRight: "10px" }} /> 
           SignIn with Google
-        </div>
+        </Button>
         <br /> <br />
-        <div
-          className="login-button facebook"
-          onClick={() => handleOnClickAuth(facebookProvider)}
+        <Button
+ 
+         className={classes.loginBbuttonFCB}
+         onClick={() => handleOnClickAuth(facebookProvider)}
         >
           <FacebookOutlined style={{ marginRight: "10px" }} /> 
           SignIn with Facebooke
-        </div>
+        </Button>
       </div>
-      <div className={classes.section3}></div> */
-
-  return (
-    <div>
-      <div className="appbar">
-        <ul>
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-      <div className={classes.section1} id="home">
-        <h1>Home</h1>
-      </div>
-      <div className={classes.section1} id="about">
-        ABOUT
-      </div>
-      <div className={classes.section1} id="contact"></div>
-    </div>
   );
 }
 

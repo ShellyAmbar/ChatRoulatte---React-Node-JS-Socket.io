@@ -12,11 +12,14 @@
 
 .login-button {
   cursor: pointer;
+  padding: 40px;
   color: white;
-  padding: 12px;
+  padding: 20px;
   border-radius: 8px;
   display: inline-block;
 }
+
+
 
 .facebook {
   background-color: #3b5998;
@@ -26,29 +29,7 @@
   background-color: #4285f4;
   color: white;
 }
-.appbar {
-  position: absolute;
-  margin-top: 0px;
-  padding-top: 60px;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  color: azure;
-  z-index: 1;
-}
-.appbar ul {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  color: azure;
-  font-size: 20px;
-}
-.appbar li {
-  margin: 5px;
-}
+
 
 /* paralax
 .containerPage {

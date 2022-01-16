@@ -47,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     margin: "auto",
     width: "50%",
-
+backgroundColor:"#282c34",
+color:"white",
     alignSelf: "center",
     padding: "10px",
   },
@@ -78,7 +79,7 @@ function Options({ children }) {
   return show ? (
     <Container className={classes.container}>
       <Paper elevation={10} className={classes.paper}>
-        <Button onClick={handleClose}> X </Button>
+        {/* <Button  onClick={handleClose}> X </Button> */}
         <form className={classes.root} noValidate autoComplete="off">
           <Grid container className={classes.gridContainer}>
             <Grid item xs={12} md={6} className={classes.padding}>
@@ -86,6 +87,7 @@ function Options({ children }) {
                 Account Info
               </Typography>
               <TextField
+               color="#fff"
                 label="Name"
                 value={name}
                 onChange={(e) => setname(e.target.value)}
@@ -94,7 +96,7 @@ function Options({ children }) {
               <CopyToClipboard text={me} className={classes.margin}>
                 <Button
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   fullWidth
                   startIcon={<Assignment fontSize="large" />}
                 >
@@ -108,6 +110,8 @@ function Options({ children }) {
                 Make a call
               </Typography>
               <TextField
+              
+               color="white"
                 label="Id to call"
                 value={idToCall}
                 onChange={(e) => setidToCall(e.target.value)}
@@ -128,7 +132,8 @@ function Options({ children }) {
                 <Button
                   className={classes.margin}
                   variant="contained"
-                  color="primary"
+                 color="secondary"
+                
                   fullWidth
                   startIcon={<Phone fontSize="large" />}
                   onClick={() => callUser(idToCall)}

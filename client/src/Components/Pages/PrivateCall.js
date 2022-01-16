@@ -9,9 +9,12 @@ import { PhoneDisabled } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
-    width: "100%",
-    height: "100%",
     background: "rgba(0, 0, 0, 0.7)",
+    width: "100%",
+  
+    height: "100vh",
+    minHeight: "100vh"
+    
   },
   buttonConatinerStyle: {
     flexDirection: "row",

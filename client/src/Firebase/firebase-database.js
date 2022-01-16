@@ -8,7 +8,7 @@ const userDatabaseRef = firebaseConfig.database().ref(usersPath);
 export const addUser = (user) => {
   const userId = userDatabaseRef.push({}).key;
 
-  const newUser = User({
+  const newUser = new User({
     id: userId,
     email: user.email,
     name: user.displayName,

@@ -62,7 +62,7 @@ export  function HamburgerMenu(props){
 
       return(
             <HamburgerMenuContainer>
-                  <MenuToggle toggle={toggleMenu} isOpen={IsOpen} />
+                  <MenuToggle  toggle={toggleMenu} isOpen={IsOpen} />
                   <MenuContainer initial={false} animate={IsOpen ? "open" : "closed"} variants={menuVariants} transition={menuTransition}>
                         <NavigationMenu  isOpen={IsOpen}/>
                   </MenuContainer>
