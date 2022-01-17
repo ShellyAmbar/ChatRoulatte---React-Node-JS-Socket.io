@@ -3,6 +3,7 @@ import "./ContactMe.css";
 import emailjs from "emailjs-com";
 import ScrollAnimations from "../../Customs/ScrollAnimations";
 
+
 const ContactMe = () => {
   const [phone, setphone] = useState("");
   const [email, setemail] = useState("");
@@ -39,10 +40,10 @@ const ContactMe = () => {
 
   return (
     <div id="ContactMe" className="contact-container">
-      <h1 className="slide-in from-top">Contact Me</h1>
+      <h1 className="slide-in from-top">Need Help?  Contact Us </h1>
       <div className="contact-wrap">
         <div className="contact-in slide-in from-left">
-          <h1>My Info</h1>
+          <h1>Info</h1>
           <h2>
             Phone <i class="fas fa-phone"></i>
           </h2>

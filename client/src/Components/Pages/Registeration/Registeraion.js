@@ -16,6 +16,7 @@ import "./Registeration.css";
 import { addUser } from "../../../Firebase/firebase-database";
 import User from "../../../Firebase/Models/User";
 import { Button } from "@material-ui/core";
+import BubbleFloating from "../../Customs/BubbleFloating/BubbleFloating";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -149,7 +150,8 @@ function Registeraion() {
           ref={myVideo}
           className={classes.videoSmall}
         />
-          <img src={'./images/love.png'} className={classes.image}/>
+        <BubbleFloating/>
+         
          <h2 style={{ marginBottom: "20px", color: "white", fontSize: "50px" }}>
           Register now..
         </h2>

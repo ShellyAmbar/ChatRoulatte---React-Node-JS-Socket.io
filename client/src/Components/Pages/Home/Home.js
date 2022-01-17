@@ -3,6 +3,7 @@ import "./Home.css";
 import { makeStyles } from "@material-ui/core/styles";
 import ContactMe from "../contactMe/ContactMe";
 import Gallery from "../Gallery/Gallery";
+import BubbleFloating from "../../Customs/BubbleFloating/BubbleFloating";
 
 
 function Home() {
@@ -21,16 +22,8 @@ function Home() {
         container: {
           display: "flex",
           flexDirection: "column",
-          alignContent: "center",
-          alignItems: "center",
-          justifyContent: "center",
-          justifyItems: "center",
           minWidth: "100%",
           height: "100%",
-      
-          background: "rgba(0, 0, 0, 0.4)",
-      
-          position: "absolute",
           right: 0,
           bottom: 0,
           left: 0,
@@ -79,7 +72,10 @@ function Home() {
       const classes = useStyles();
     return (
 
-        <div className={classes.containerPage}>
+        
+         
+     <div className={classes.container}>
+        
       <div className="appbar">
         <ul>
           <li>
@@ -96,19 +92,29 @@ function Home() {
           </li>
         </ul>
       </div>
+      
+        <div className={classes.container}>
       <div className="section" id="home">
+    
         <h1>Welcome to Date Roulatte! </h1>
-        <img src={'./images/love.png'} className={classes.image}/>
+        
+        <img src={'./images/19.png'} className={classes.image}/>
        <p>Here you will find your PERFECT Match in a fiew minutes..</p>
        <p>Just set you preferences and START date with random matches!</p>
       </div>
       <div className="section" id="gallery">
+     
         <Gallery/>
       </div>
       <div className="section" id="contact">
+     
      <ContactMe/>
       </div>
-    </div>
+      </div>
+      <BubbleFloating/>
+     
+      </div>
+ 
     )
 }
 
