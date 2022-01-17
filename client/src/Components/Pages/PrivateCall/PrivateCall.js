@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import VideoPlayer from "../VideoPlayer/VideoPlayer";
-import Options from "../Options";
-import Notifications from "../Notifications";
-import { SocketContext } from "../../Context/SocketContext";
+import VideoPlayer from "../../VideoPlayer/VideoPlayer";
+import Options from "../../Options";
+import Notifications from "../../Notifications";
+import { SocketContext } from "../../../Context/SocketContext";
 import { Button } from "@material-ui/core";
 import { PhoneDisabled } from "@material-ui/icons";
+import "./PrivateCall.css"
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -33,7 +34,7 @@ function PrivateCall() {
     useContext(SocketContext);
   const classes = useStyles();
   return (
-    <div className={classes.wrapper}>
+    <div className="private-call-container">
       <VideoPlayer />
       {isOnCall ? (
         <div className={classes.buttonConatinerStyle}>

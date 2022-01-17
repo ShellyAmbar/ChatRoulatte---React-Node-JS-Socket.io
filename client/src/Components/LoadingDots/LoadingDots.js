@@ -4,7 +4,7 @@ import "./LoadingDots.css";
 
 function LoadingDots() {
   return (
-    <div className="container">
+    <div className="dots-container">
       <div className="container_dots">
         <div className="dot"></div>
         <div className="dot"></div>

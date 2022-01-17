@@ -142,7 +142,7 @@ function Registeraion() {
  
 
   return (
-      <div className={classes.section1}>
+      <div className="registeration-container">
         <video
           playsInline
           muted

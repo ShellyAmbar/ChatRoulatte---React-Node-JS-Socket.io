@@ -5,12 +5,18 @@ import Select from "react-select";
 import countryList from "react-select-country-list";
 
 import { SocketContext } from "../../../Context/SocketContext";
+import BubbleFloating from "../../Customs/BubbleFloating/BubbleFloating";
+import RangeSlider from "../../Customs/RangeSlider/RangeSlider";
+import ButtonGroup from "../../Customs/ButtonGroup/ButtonGroup";
 
 function Settings() {
   const [country, setCountry] = useState("");
   const [gender, setGender] = useState("Male");
   const [age, setAge] = React.useState("");
-
+  const [minValue, setMinValue] = useState(0);
+  const [maxValue, setMaxValue] = useState(10000);
+  const units = ["KM", "Mile"];
+  const [unit, setunit] = useState(units[0]);
   const coutriesOptions = useMemo(() => countryList().getData(), []);
 
   const ageTypes = [
@@ -41,9 +47,18 @@ function Settings() {
   const onClickFemale = () => {
     setGender("female");
   };
+
+  const onRangeSelectedHandler = (unit, minValue, maxValue)=>{
+    setMinValue(minValue);
+    setMaxValue(maxValue);
+    setunit(unit);
+    console.log(minValue, maxValue, unit);
+  }
+
   return (
     <div className="settings-container">
       <video playsInline muted autoPlay ref={myVideo} className="video-large" />
+      <BubbleFloating/>
       <div className="settings-card">
         <h1 style={{ color: "white" }}>Settings</h1>
         <form onSubmit={handleSubmit}>
@@ -130,7 +145,13 @@ function Settings() {
                   />
                 </div>
               </div>
+             
             </div>
+            <div className="slider-view">
+             
+           <RangeSlider onRangeSelected={onRangeSelectedHandler} units={units} minValueProp={minValue} maxValueProp={maxValue} unitProp={unit}/>
+            </div>
+           
           </div>
         </form>
       </div>

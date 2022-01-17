@@ -7,6 +7,7 @@ import Draggable from "react-draggable";
 import { render } from "react-dom";
 import LoadingDots from "../LoadingDots/LoadingDots";
 // import { auth } from "./../../firebase";
+import BubbleFloating from '../Customs/BubbleFloating/BubbleFloating'
 
 
 
@@ -41,15 +42,17 @@ const useStyles = makeStyles((theme) => ({
     top:"50px",
     left:0,
     width: "100%",
-    height:"100%", 
+    height:"100%",
   },
   videoLarge:{
     backgroundColor: "rgba(0, 0, 0, 0.24)",
     position: "fixed",
+    objectFit:"cover",
     right: 0,
     bottom: 0,
     minHeight: "100%",
     minWidth: "100%",
+    
     
   },
 
@@ -127,7 +130,9 @@ const VideoPlayer = (props) => {
      </div>
       }
       {
-        !isOnCall ? <LoadingDots/>: <></>
+        !isOnCall ?
+      
+        <><LoadingDots/> <BubbleFloating/></>: <></>
       }
     </div>
   )

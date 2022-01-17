@@ -71,10 +71,7 @@ function Home() {
       }));
       const classes = useStyles();
     return (
-
-        
-         
-     <div className={classes.container}>
+     <div className="home-container">
         
       <div className="appbar">
         <ul>
@@ -93,7 +90,7 @@ function Home() {
         </ul>
       </div>
       
-        <div className={classes.container}>
+      
       <div className="section" id="home">
     
         <h1>Welcome to Date Roulatte! </h1>
@@ -110,10 +107,11 @@ function Home() {
      
      <ContactMe/>
       </div>
-      </div>
+      
       <BubbleFloating/>
      
       </div>
+    
  
     )
 }

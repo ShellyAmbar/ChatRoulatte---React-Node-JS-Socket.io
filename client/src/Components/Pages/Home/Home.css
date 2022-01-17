@@ -1,3 +1,20 @@
+/* .higher-container {
+  width: 100%;
+  height: 100%;
+} */
+.home-container {
+  width: 100%;
+  height: 100%;
+}
+.home-container.keep-scrolling::-webkit-scrollbar {
+  display: none;
+}
+.home-container:-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
+}
+
 .appbar {
   position: absolute;
   margin-top: 0px;
