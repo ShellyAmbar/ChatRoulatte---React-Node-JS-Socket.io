@@ -59,17 +59,19 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background: #242424;
+
   padding-bottom: 50px;
 }
 .section h1 {
   color: #fff;
-  margin-bottom: 100px;
-  font-size: 36px;
+  margin-bottom: 50px;
+  font-size: 50px;
+  font-weight: 1000;
 }
 
 .section p {
   color: #fff;
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: 1000;
   margin-top: 20px;
 }

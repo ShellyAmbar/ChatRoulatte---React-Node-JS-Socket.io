@@ -90,10 +90,10 @@ function Home() {
         </ul>
       </div>
       
-      
+     
       <div className="section" id="home">
     
-        <h1>Welcome to Date Roulatte! </h1>
+        <h1>Welcome to Date Roulette! </h1>
         
         <img src={'./images/19.png'} className={classes.image}/>
        <p>Here you will find your PERFECT Match in a fiew minutes..</p>

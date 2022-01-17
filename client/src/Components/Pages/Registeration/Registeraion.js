@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "100%",
     height: "100%",
 
-    background: "rgba(0, 0, 0, 0.4)",
+    
 
     position: "absolute",
     right: 0,

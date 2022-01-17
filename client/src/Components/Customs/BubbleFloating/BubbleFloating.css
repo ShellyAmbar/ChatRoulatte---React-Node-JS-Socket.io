@@ -1,7 +1,7 @@
 .bubble-container {
   height: 100%;
   width: 100%;
-
+  z-index: -1;
   display: flex;
   position: fixed;
   top: 0;
@@ -9,6 +9,7 @@
   transform: translateZ(0);
   overflow: hidden;
   object-fit: cover;
+  background: #131212;
 }
 
 .bubble-container li {
@@ -110,17 +111,21 @@
   width: 60px;
   left: 50%;
   animation-delay: 5ms;
+  -webkit-animation-delay: 5ms;
   animation-duration: 21s;
+  -webkit-animation-duration: 21s;
 }
 
 @keyframes square {
   0% {
     transform: translateY(0px) rotate(10deg);
+    -webkit-transform: translateY(0px) rotate(10deg);
     opacity: 0;
   }
 
   100% {
     transform: translateY(-3080px) rotate(0deg);
+    -webkit-transform: translateY(-3080px) rotate(0deg);
     opacity: 1;
   }
 }
