@@ -6,7 +6,6 @@ function Gallery() {
     return (
         <div className='gallery-container'>
             
-
              <div className='grid-container'>
            
            {
@@ -21,7 +20,7 @@ function Gallery() {
            }
        
        </div>
-        </div>
+  </div>
       
     )
 }

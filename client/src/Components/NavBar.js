@@ -75,7 +75,7 @@ const NavBar = () => {
           style={{
             borderRadius: "25px",
             border: "2px solid #ffff",
-            padding: "5px",
+            padding: "7px",
             fontSize: "20px",
             color: "white",
             marginTop: "10px",
@@ -94,7 +94,7 @@ const NavBar = () => {
           style={{
             borderRadius: "25px",
             border: "2px solid #ffff",
-            padding: "5px",
+            padding: "7px",
             fontSize: "20px",
             color: "white",
             marginTop: "10px",

@@ -28,7 +28,7 @@ text-decoration: none;
   transition: all 200ms ease-in-out;
 `
 const NavList = styled.ul`
-padding: 0 0.8em;
+padding: 4.8em 0.8em;
 width: 100%;
 display: flex;
 flex-direction:column;
@@ -77,13 +77,13 @@ const variants = {
 function NavigationMenu({isOpen}) {
   const {name} = useContext(SocketContext)
   return <MenuContainer>
-    <TopContainer>Hello {name}</TopContainer>
+    {/* <TopContainer>Hello {name}</TopContainer> */}
     <NavList>
       <NavLink initial={false} animate={isOpen ? "show": "hide"} variants={{show: {...variants.show, transition:{delay: 0.7}, duration: 0.2}, hide: {...variants.hide, transition:{delay: 0.7}, duration: 0.05}}}>
       <Link to="/PrivateCall">Private Call</Link>
       </NavLink>
       <NavLink initial={false} animate={isOpen ? "show": "hide"} variants={{show: {...variants.show, transition:{delay: 1}, duration: 0.2}, hide: {...variants.hide, transition:{delay: 0.6}, duration: 0.05}}}>
-      <Link to="/ChatRoulate">ChatRoulate</Link>
+      <Link to="/DateRoulette">DateRoulette</Link>
       </NavLink>
       <NavLink initial={false} animate={isOpen ? "show": "hide"} variants={{show: {...variants.show, transition:{delay: 1.3}, duration: 0.2}, hide: {...variants.hide, transition:{delay: 0.5}, duration: 0.05}}}>
       <Link to="/Settings">Settings</Link>

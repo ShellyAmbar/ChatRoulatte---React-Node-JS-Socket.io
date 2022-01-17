@@ -25,7 +25,7 @@ export default function Routes() {
           <Home />
         </Route>
 
-        <PrivateRoute path="/ChatRoulate" component={ChatRoulate} />
+        <PrivateRoute path="/DateRoulette" component={ChatRoulate} />
 
         <PrivateRoute path="/PrivateCall" component={PrivateCall} />
 

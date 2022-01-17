@@ -135,7 +135,7 @@ function Registeraion() {
     console.log("click")
     await SocialMediaAuth(provider, (user) => {
       addUser(user);
-      window.location.href = "/ChatRoulate";
+      window.location.href = "/DateRoulette";
     });
   };
 

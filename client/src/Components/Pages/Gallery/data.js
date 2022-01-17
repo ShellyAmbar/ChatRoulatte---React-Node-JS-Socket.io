@@ -11,6 +11,7 @@ const data = [
         img: "./images/3.jpg",
         tiitle:""
     },
+    
     {
         img: "./images/4.jpg",
         tiitle:""
@@ -18,7 +19,12 @@ const data = [
     {
         img: "./images/5.jpg",
         tiitle:""
-    }
+    },
+    {
+        img: "./images/20.jpg",
+        tiitle:""
+    },
+   
 
 ]
 
