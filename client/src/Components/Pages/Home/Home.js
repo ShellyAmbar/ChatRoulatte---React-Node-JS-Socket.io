@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import "./Home.css";
 import { makeStyles } from "@material-ui/core/styles";
 import ContactMe from "../contactMe/ContactMe";
+import Gallery from "../Gallery/Gallery";
 
 
 function Home() {
@@ -85,6 +86,10 @@ function Home() {
             <a href="#home">Home</a> 
            
           </li>
+          <li>
+            <a href="#gallery">Gallery</a> 
+           
+          </li>
          
           <li>
             <a href="#contact">Contact</a>
@@ -97,7 +102,9 @@ function Home() {
        <p>Here you will find your PERFECT Match in a fiew minutes..</p>
        <p>Just set you preferences and START date with random matches!</p>
       </div>
-     
+      <div className="section" id="gallery">
+        <Gallery/>
+      </div>
       <div className="section" id="contact">
      <ContactMe/>
       </div>

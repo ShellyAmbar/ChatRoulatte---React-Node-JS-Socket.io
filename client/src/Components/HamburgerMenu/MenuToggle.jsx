@@ -10,7 +10,7 @@ margin: 20px;
 `
 
 const Path =(props)=>(
-    <motion.path strokeWidth="3" fill="transparent" strokeLinecap="round" color="#fff" {...props}/>
+    <motion.path strokeWidth="3" fill="transparent" strokeLinecap="round"  {...props}/>
 )
 
 const transition = {duration: 0.3}
