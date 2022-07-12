@@ -1,36 +1,105 @@
 import firebaseConfig from "./firebase-config";
 import User from "./Models/User";
 
-const usersPath = "Users";
+const usersPath = "users";
 const userDatabaseRef = firebaseConfig.database().ref(usersPath);
 
 // User
-export const addUser = (user) => {
-  const userId = userDatabaseRef.push({}).key;
+export const addUser = async ({user, userStream}) => {
+  console.log("ID: " + user.uid); // Do not send to your backend! Use an ID token instead.
+  console.log("Name: " + user.displayName);
+  console.log("Email: " + user.email);
+  console.log("userStream: " + userStream.id);
+  const userId = user.uid;
 
-  const newUser = new User({
+  const newUser = {
     id: userId,
     email: user.email,
     name: user.displayName,
-  });
+    streamId: userStream.id,
+    age: 25,
+    country: "",
+    city: "",
+    gender: "",
+    wantedGender: "",
+    wantedMinAge: 25,
+    wantedMaxAge: 35,
+    wantedCountry: "",
+    wantedCity: "",
+    wantedMaxDistanceKm: 100,
+  };
 
-  userDatabaseRef.child(userId).update(newUser, (err) => {
-    if (err) {
-      console.log(err);
-    }
-  });
+  firebaseConfig
+    .firestore()
+    .collection("users")
+    .onSnapshot((users) => {
+      const allUsersIds = users.docs.map((user) => {
+        if (user.id.match(userId)) {
+          firebaseConfig
+            .firestore()
+            .collection("users")
+            .doc(userId)
+            .update(newUser)
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else {
+          firebaseConfig
+            .firestore()
+            .collection("users")
+            .doc(userId)
+            .set(newUser)
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      });
+    });
 };
-export const editUser = (user) => {
-  userDatabaseRef.child(user.id).update(user, (err) => {
-    if (err) {
+export const editUser = (user, userId) => {
+  firebaseConfig
+    .firestore()
+    .collection("users")
+    .doc(userId)
+    .set(user)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
       console.log(err);
-    }
-  });
+    });
 };
 
-export const getAllUsers = () => {
-  let users = [];
-  //forech( user in databaseRef.child(usersPath).
+export const getAllReleventUsers = ({userId}) => {
+  var users;
+  var userSnapshot = firebaseConfig.firestore().collection("users").doc(userId);
+
+  var usersDocs = firebaseConfig.firestore().collection("users");
+  if (userSnapshot["wantedCountry"]) {
+    users = usersDocs.where("country", "==", userSnapshot["wantedCountry"]);
+  }
+  if (userSnapshot["wantedGender"]) {
+    users.where("gender", "==", userSnapshot["wantedGender"]);
+  }
+  if (userSnapshot["wantedCity"]) {
+    users.where("city", "==", userSnapshot["wantedCity"]);
+  }
+  if (userSnapshot["wantedMinAge"]) {
+    users.where("age", ">=", userSnapshot["wantedMinAge"]);
+  }
+  if (userSnapshot["wantedMaxAge"]) {
+    users.where("age", "<=", userSnapshot["wantedMaxAge"]);
+  }
+  if (userSnapshot["wantedMaxDistanceKm"]) {
+  }
+
+  return users;
 };
 
 export const deleteUser = (user) => {};

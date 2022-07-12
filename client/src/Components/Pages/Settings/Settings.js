@@ -1,10 +1,10 @@
 import "./Settings.css";
-import React, { useContext, useState, useMemo } from "react";
-import { Button } from "@material-ui/core";
+import React, {useContext, useState, useMemo} from "react";
+import {Button} from "@material-ui/core";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 
-import { SocketContext } from "../../../Context/SocketContext";
+import {SocketContext} from "../../../Context/SocketContext";
 import BubbleFloating from "../../Customs/BubbleFloating/BubbleFloating";
 import RangeSlider from "../../Customs/RangeSlider/RangeSlider";
 import ButtonGroup from "../../Customs/ButtonGroup/ButtonGroup";
@@ -20,13 +20,13 @@ function Settings() {
   const coutriesOptions = useMemo(() => countryList().getData(), []);
 
   const ageTypes = [
-    { value: "18-30", label: "18-30" },
-    { value: "30-40", label: "30-40" },
-    { value: "40-50", label: "40-50" },
-    { value: "50+", label: "50+" },
-    { value: "60+", label: "60+" },
-    { value: "70+", label: "70+" },
-    { value: "80+", label: "80+" },
+    {value: "18-30", label: "18-30"},
+    {value: "30-40", label: "30-40"},
+    {value: "40-50", label: "40-50"},
+    {value: "50+", label: "50+"},
+    {value: "60+", label: "60+"},
+    {value: "70+", label: "70+"},
+    {value: "80+", label: "80+"},
   ];
 
   const changeCountryHandler = (value) => {
@@ -37,7 +37,7 @@ function Settings() {
     setAge(value);
   };
 
-  const { myVideo } = useContext(SocketContext);
+  const {myVideo} = useContext(SocketContext);
   const handleSubmit = () => {
     // save changes
   };
@@ -48,36 +48,36 @@ function Settings() {
     setGender("female");
   };
 
-  const onRangeSelectedHandler = (unit, minValue, maxValue)=>{
+  const onRangeSelectedHandler = (unit, minValue, maxValue) => {
     setMinValue(minValue);
     setMaxValue(maxValue);
     setunit(unit);
     console.log(minValue, maxValue, unit);
-  }
+  };
 
   return (
     <div className="settings-container">
       <video playsInline muted autoPlay ref={myVideo} className="video-large" />
-      <BubbleFloating/>
+      <BubbleFloating />
       <div className="settings-card">
-        <h1 style={{ color: "white" }}>Settings</h1>
+        <h1 style={{color: "white"}}>Settings</h1>
         <form onSubmit={handleSubmit}>
           <div className="content-container">
             <div className="row-center">
               <div className="culomn-center">
                 <div className="row-center">
                   <div className="lable-big">I am a: </div>
-                  <Button style={{ marginLeft: "10px" }}>
+                  <Button style={{marginLeft: "10px"}}>
                     <img
-                      style={{ width: "50px", height: "50px" }}
+                      style={{width: "50px", height: "50px"}}
                       src={"images/male.png"}
                       onClick={onClickMale}
                     />
                   </Button>
 
-                  <Button style={{ marginLeft: "10px" }}>
+                  <Button style={{marginLeft: "10px"}}>
                     <img
-                      style={{ width: "50px", height: "50px" }}
+                      style={{width: "50px", height: "50px"}}
                       src={"images/female.png"}
                       onClick={onClickFemale}
                     />
@@ -108,17 +108,17 @@ function Settings() {
               <div className="culomn-center">
                 <div className="row-center">
                   <div className="lable-big">Looking for: </div>
-                  <Button style={{ marginLeft: "10px" }}>
+                  <Button style={{marginLeft: "10px"}}>
                     <img
-                      style={{ width: "50px", height: "50px" }}
+                      style={{width: "50px", height: "50px"}}
                       src={"images/male.png"}
                       onClick={onClickMale}
                     />
                   </Button>
 
-                  <Button style={{ marginLeft: "10px" }}>
+                  <Button style={{marginLeft: "10px"}}>
                     <img
-                      style={{ width: "50px", height: "50px" }}
+                      style={{width: "50px", height: "50px"}}
                       src={"images/female.png"}
                       onClick={onClickFemale}
                     />
@@ -145,13 +145,16 @@ function Settings() {
                   />
                 </div>
               </div>
-             
             </div>
             <div className="slider-view">
-             
-           <RangeSlider onRangeSelected={onRangeSelectedHandler} units={units} minValueProp={minValue} maxValueProp={maxValue} unitProp={unit}/>
+              <RangeSlider
+                onRangeSelected={onRangeSelectedHandler}
+                units={units}
+                minValueProp={minValue}
+                maxValueProp={maxValue}
+                unitProp={unit}
+              />
             </div>
-           
           </div>
         </form>
       </div>

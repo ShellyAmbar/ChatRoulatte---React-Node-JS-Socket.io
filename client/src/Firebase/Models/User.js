@@ -12,7 +12,7 @@ class User {
   matchCity;
   matchMaxDistance;
 
-  User({ id, email, name }) {
+  User({id, email, name}) {
     this.id = id;
     this.streamId = "";
     this.email = email;

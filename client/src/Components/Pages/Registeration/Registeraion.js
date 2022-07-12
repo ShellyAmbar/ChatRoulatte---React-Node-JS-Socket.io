@@ -1,10 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {useContext, useState, useEffect} from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
-import { SocketContext } from "../../../Context/SocketContext";
-import { Link, useHistory } from "react-router-dom";
-import { GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
+import {SocketContext} from "../../../Context/SocketContext";
+import {Link, useHistory} from "react-router-dom";
+import {GoogleOutlined, FacebookOutlined} from "@ant-design/icons";
 import "firebase/app";
 import {
   facebookProvider,
@@ -13,11 +13,10 @@ import {
 import SocialMediaAuth from "../../../Firebase/firebaseAuthMethodes";
 
 import "./Registeration.css";
-import { addUser } from "../../../Firebase/firebase-database";
+import {addUser} from "../../../Firebase/firebase-database";
 import User from "../../../Firebase/Models/User";
-import { Button } from "@material-ui/core";
+import {Button} from "@material-ui/core";
 import BubbleFloating from "../../Customs/BubbleFloating/BubbleFloating";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,8 +33,6 @@ const useStyles = makeStyles((theme) => ({
     justifyItems: "center",
     minWidth: "100%",
     height: "100%",
-
-    
 
     position: "absolute",
     right: 0,
@@ -94,86 +91,76 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100%",
     minWidth: "100%",
     display: "flex",
-   paddingTop:"200px",
+    paddingTop: "200px",
     flexDirection: "column",
     alignItems: "center",
     background: "#242424",
-    
   },
-  loginBbuttonFCB:{
+  loginBbuttonFCB: {
     cursor: "pointer",
     padding: 40,
     color: "white",
     padding: 20,
     backgroundColor: "#3b5998",
-   
-    display: "inline-block"
+
+    display: "inline-block",
   },
-  loginBbuttonGOOGLE:{
+  loginBbuttonGOOGLE: {
     cursor: "pointer",
     padding: 40,
     color: "white",
     padding: 20,
     backgroundColor: "#4285f4",
-   
-    display: "inline-block"
+
+    display: "inline-block",
   },
-  image:{
-           
-    height:"200px",
-    width:"auto"
-
-},
-
+  image: {
+    height: "200px",
+    width: "auto",
+  },
 }));
 function Registeraion() {
   const classes = useStyles();
-  const { myVideo } = useContext(SocketContext);
+  const {myVideo, stream} = useContext(SocketContext);
   const [Name, setName] = useState("");
   const history = useHistory();
   const handleOnClickAuth = async (provider) => {
-    console.log("click")
     await SocialMediaAuth(provider, (user) => {
-      addUser(user);
-      window.location.href = "/DateRoulette";
+      console.log("me" + stream);
+      addUser({user, userStream: stream});
+      // history.push("/DateRoulette");
     });
   };
 
- 
-
   return (
-      <div className="registeration-container">
-        <video
-          playsInline
-          muted
-          autoPlay
-          ref={myVideo}
-          className={classes.videoSmall}
-        />
-        <BubbleFloating/>
-         
-         <h2 style={{ marginBottom: "20px", color: "white", fontSize: "50px" }}>
-          Register now..
-        </h2>
-
-        <Button
-    
-         className={classes.loginBbuttonGOOGLE}
-         onClick={() => handleOnClickAuth(googleProvider)}
-        >
-           <GoogleOutlined style={{ marginRight: "10px" }} /> 
-          SignIn with Google
-        </Button>
-        <br /> <br />
-        <Button
- 
-         className={classes.loginBbuttonFCB}
-         onClick={() => handleOnClickAuth(facebookProvider)}
-        >
-          <FacebookOutlined style={{ marginRight: "10px" }} /> 
-          SignIn with Facebooke
-        </Button>
-      </div>
+    <div className="registeration-container">
+      <video
+        playsInline
+        muted
+        autoPlay
+        ref={myVideo}
+        className={classes.videoSmall}
+      />
+      <BubbleFloating />
+      <h2 style={{marginBottom: "20px", color: "white", fontSize: "50px"}}>
+        Register now..
+      </h2>
+      <Button
+        className={classes.loginBbuttonGOOGLE}
+        onClick={() => handleOnClickAuth(googleProvider)}
+      >
+        <GoogleOutlined style={{marginRight: "10px"}} />
+        SignIn with Google
+      </Button>
+      <br /> <br />
+      <Button
+        className={classes.loginBbuttonFCB}
+        onClick={() => handleOnClickAuth(facebookProvider)}
+      >
+        <FacebookOutlined style={{marginRight: "10px"}} />
+        SignIn with Facebooke
+      </Button>
+    </div>
   );
 }
 

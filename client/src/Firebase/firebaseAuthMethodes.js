@@ -1,7 +1,9 @@
 import firebaseConfig from "./firebase-config";
 
 const SocialMediaAuth = (provider, callback) => {
-  console.log("provider ",provider, "Clicked")
+  console.log("provider ", provider, "Clicked");
+  provider.addScope("profile");
+  provider.addScope("email");
   return firebaseConfig
     .auth()
     .signInWithPopup(provider)

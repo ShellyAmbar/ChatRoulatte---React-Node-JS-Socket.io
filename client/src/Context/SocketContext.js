@@ -1,10 +1,10 @@
-import React, { createContext, useState, useRef, useEffect } from "react";
-import { io } from "socket.io-client";
+import React, {createContext, useState, useRef, useEffect} from "react";
+import {io} from "socket.io-client";
 import Peer from "simple-peer";
 
 const SocketContext = createContext();
 const socket = io("http://localhost:5000");
-const ContextProvider = ({ children }) => {
+const ContextProvider = ({children}) => {
   const [stream, setStream] = useState(null);
   const [me, setMe] = useState("");
   const [call, setCall] = useState({});
@@ -29,6 +29,7 @@ const ContextProvider = ({ children }) => {
       })
       .then((currentStream) => {
         if (currentStream != null) {
+          console.log("stream" + currentStream.id);
           setStream(currentStream);
           setmyVideoSrc(currentStream);
 
@@ -42,16 +43,16 @@ const ContextProvider = ({ children }) => {
       setMe(id);
     });
 
-    socket.on("calluser", ({ from, name: callerName, signal }) => {
-      setCall({ isReceivedCall: true, from, name: callerName, signal });
+    socket.on("calluser", ({from, name: callerName, signal}) => {
+      setCall({isReceivedCall: true, from, name: callerName, signal});
     });
   }, []);
   const answerCall = () => {
     setcallAccepted(true);
     setisOnCall(true);
-    const peer = new Peer({ initiator: false, trickle: false, stream });
+    const peer = new Peer({initiator: false, trickle: false, stream});
     peer.on("signal", (data) => {
-      socket.emit("answercall", { signal: data, to: call.from });
+      socket.emit("answercall", {signal: data, to: call.from});
     });
     peer.on("stream", (currentStream) => {
       userVideo.current.srcObject = currentStream;
@@ -65,7 +66,7 @@ const ContextProvider = ({ children }) => {
     connectionRef.current = peer;
   };
   const callUser = (id) => {
-    const peer = new Peer({ initiator: true, trickle: false, stream });
+    const peer = new Peer({initiator: true, trickle: false, stream});
     peer.on("signal", (data) => {
       socket.emit("calluser", {
         userToCall: id,
@@ -121,4 +122,4 @@ const ContextProvider = ({ children }) => {
   );
 };
 
-export { ContextProvider, SocketContext };
+export {ContextProvider, SocketContext};

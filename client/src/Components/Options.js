@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, {useContext, useState} from "react";
 import {
   Typography,
   Grid,
@@ -7,10 +7,10 @@ import {
   TextField,
   Container,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { Assignment, Phone, PhoneDisabled } from "@material-ui/icons";
-import { SocketContext } from "../Context/SocketContext";
+import {makeStyles} from "@material-ui/core/styles";
+import {CopyToClipboard} from "react-copy-to-clipboard";
+import {Assignment, Phone, PhoneDisabled} from "@material-ui/icons";
+import {SocketContext} from "../Context/SocketContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,14 +47,14 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     margin: "auto",
     width: "50%",
-backgroundColor:"#282c34",
-color:"white",
+    backgroundColor: "#282c34",
+    color: "white",
     alignSelf: "center",
     padding: "10px",
   },
 }));
 
-function Options({ children }) {
+function Options({children}) {
   const {
     name,
     setname,
@@ -87,7 +87,7 @@ function Options({ children }) {
                 Account Info
               </Typography>
               <TextField
-               color="#fff"
+                color="#ffff"
                 label="Name"
                 value={name}
                 onChange={(e) => setname(e.target.value)}
@@ -110,8 +110,7 @@ function Options({ children }) {
                 Make a call
               </Typography>
               <TextField
-              
-               color="white"
+                color="white"
                 label="Id to call"
                 value={idToCall}
                 onChange={(e) => setidToCall(e.target.value)}
@@ -132,8 +131,7 @@ function Options({ children }) {
                 <Button
                   className={classes.margin}
                   variant="contained"
-                 color="secondary"
-                
+                  color="secondary"
                   fullWidth
                   startIcon={<Phone fontSize="large" />}
                   onClick={() => callUser(idToCall)}

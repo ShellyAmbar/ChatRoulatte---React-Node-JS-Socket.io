@@ -1,10 +1,10 @@
-import { Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {Button} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core/styles";
+import React, {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 import styled from "styled-components";
-import { HamburgerMenu } from "./HamburgerMenu";
-import { useHistory } from "react-router-dom";
+import {HamburgerMenu} from "./HamburgerMenu";
+import {useHistory} from "react-router-dom";
 
 import firebaseConfig from "../Firebase/firebase-config";
 
@@ -15,16 +15,15 @@ const NavbarContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 70px;
-  z-index: 99;
+
   border-bottom: 1px solid #fff;
-  
 `;
 
 const useStyles = makeStyles((theme) => ({
   NavbarContainer: {
-    // position: "sticky",
-    // top: 0,
-    // zIndex: 999,
+    position: "sticky",
+    top: 0,
+    zIndex: 1,
     height: "70px",
     width: "100%",
     borderBottom: "1px solid #FFFF",
@@ -37,9 +36,31 @@ const useStyles = makeStyles((theme) => ({
 
     margin: "10px",
   },
- 
+
   toggle: {
     margin: "50px",
+  },
+  btnRegister: {
+    zIndex: 3,
+    borderRadius: "25px",
+    border: "2px solid #ffff",
+    padding: "7px",
+    fontSize: "20px",
+    color: "white",
+    marginTop: "10px",
+    marginBottom: "5px",
+    marginRight: "3px",
+  },
+  btnHome: {
+    zIndex: 3,
+    borderRadius: "25px",
+    border: "2px solid #ffff",
+    padding: "7px",
+    fontSize: "20px",
+    color: "white",
+    marginTop: "10px",
+    marginBottom: "5px",
+    marginRight: "10px",
   },
 }));
 
@@ -63,6 +84,8 @@ const NavBar = () => {
   const onClickButtonRegister = async () => {
     if (user) {
       await firebaseConfig.auth().signOut();
+    } else {
+      history.push("/Registeration");
     }
   };
 
@@ -70,43 +93,13 @@ const NavBar = () => {
     <NavbarContainer>
       <HamburgerMenu />
 
-     
-        <Button
-          style={{
-            borderRadius: "25px",
-            border: "2px solid #ffff",
-            padding: "7px",
-            fontSize: "20px",
-            color: "white",
-            marginTop: "10px",
-            marginBottom:"5px",
-            marginRight:"3px"
+      <Button className={classes.btnRegister} onClick={onClickButtonRegister}>
+        {text}
+      </Button>
 
-          }}
-          href="/Registeration"
-          onClick={onClickButtonRegister}
-        >
-          Login
-        </Button>
-     
-    
-        <Button
-          style={{
-            borderRadius: "25px",
-            border: "2px solid #ffff",
-            padding: "7px",
-            fontSize: "20px",
-            color: "white",
-            marginTop: "10px",
-            marginBottom:"5px",
-            marginRight:"10px"
-          }}
-          href="/Home"
-         
-        >
-         Home
-        </Button>
-   
+      <Button className={classes.btnHome} href="/Home">
+        Home
+      </Button>
     </NavbarContainer>
   );
 };

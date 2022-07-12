@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./ContactMe.css";
 import emailjs from "emailjs-com";
 import ScrollAnimations from "../../Customs/ScrollAnimations";
-
 
 const ContactMe = () => {
   const [phone, setphone] = useState("");
@@ -13,7 +12,7 @@ const ContactMe = () => {
     setaddress("Avivim 12, Ramat Gan");
     setphone("0536200540");
     setemail("ambarshely@gmail.com");
-   return ScrollAnimations();
+    return ScrollAnimations();
   }, []);
   const form = useRef();
 
@@ -40,7 +39,6 @@ const ContactMe = () => {
 
   return (
     <div id="ContactMe" className="contact-container">
-      <h1 className="slide-in from-top">Need Help?  Contact Us </h1>
       <div className="contact-wrap">
         <div className="contact-in slide-in from-left">
           <h1>Info</h1>
@@ -56,7 +54,6 @@ const ContactMe = () => {
             Address <i class="fas fa-map-marker-alt"></i>
           </h2>
           <p>{address}</p>
-         
         </div>
         <div className="contact-in ">
           <h1>Send a Message</h1>
